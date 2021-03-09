@@ -1,10 +1,17 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    cors = require('cors');
+    cors = require('cors'),
+    path = require('path'),
+    dotenv = require('dotenv');
 
 // Objeto global de la app
 var app = express();
-require('dotenv').config();
+
+//Configuraciones de entorno
+dotenv.config({
+  path : path.resolve(__dirname, process.env.NODE_ENV + '.env')
+});
+
 require('./database');
 
 // configuración de middlewares
@@ -19,8 +26,6 @@ require('./models/Mascota');
 require('./models/Solicitud');
 
 
-// Aquí se importarán los modelos Mascota y Solicitud cuando estén listos
-/*********************** Mongoose Configuration *******************************/
 
 // Agregamos el código de nuestro router (routes/index.js)
 app.use('/v1', require('./routes'));
