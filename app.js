@@ -3,16 +3,16 @@ var express = require('express'),
     cors = require('cors');
 
 // Objeto global de la app
-var app = express();
+const app = express();
 
-const {PORT, HOST} = require('./cf');
+const {PORT, HOST} = require('./config');
 
 require('./database');
 
 // configuración de middlewares
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
 
 
 require("./models/Usuario");
