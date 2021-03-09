@@ -4,20 +4,14 @@ var express = require('express'),
 
 // Objeto global de la app
 var app = express();
+require('./database');
+require('dotenv').config();
 
 // configuración de middlewares
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-/*********************** Mongoose Configuration *******************************/
-const mongoose = require("mongoose");
-
-mongoose.connect(
-  "mongodb+srv://Freshratings:Equipo18FreshRatings@cluster0.etjir.mongodb.net/Adoptapet?retryWrites=true&w=majority"
-);
-
-mongoose.set("debug", true);
 
 require("./models/Usuario");
 require('./config/passport');
