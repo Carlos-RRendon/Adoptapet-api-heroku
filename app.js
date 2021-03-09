@@ -4,8 +4,8 @@ var express = require('express'),
 
 // Objeto global de la app
 var app = express();
-require('./database');
 require('dotenv').config();
+require('./database');
 
 // configuración de middlewares
 app.use(cors());

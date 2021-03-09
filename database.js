@@ -1,7 +1,9 @@
 /*********************** Mongoose Configuration *******************************/
 const mongoose = require("mongoose");
 
-const MONGODB_URI =  "mongodb+srv://Freshratings:Equipo18FreshRatings@cluster0.etjir.mongodb.net/Adoptapet?retryWrites=true&w=majority"
+const { MONGODB_USER, MONGODB_PASS, MONGODB_DATABASE} = process.env;
+
+const MONGODB_URI =  `mongodb+srv://${MONGODB_USER}:${MONGODB_PASS}@cluster0.etjir.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`
 
 mongoose.connect( MONGODB_URI, {
     useUnifiedTopology: true,
@@ -11,4 +13,4 @@ mongoose.connect( MONGODB_URI, {
 .then( db => console.log('Database is connected'))
 .catch( err => console.log(err));
 
-mongoose.set("debug", true);
+//mongoose.set("debug", true);
