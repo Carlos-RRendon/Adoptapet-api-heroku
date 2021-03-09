@@ -5,7 +5,7 @@ var express = require('express'),
 // Objeto global de la app
 var app = express();
 
-const {PORT} = require('./cf');
+const {PORT, HOST} = require('./cf');
 
 require('./database');
 
@@ -33,6 +33,6 @@ app.use(function(req, res, next) {
 });
 
 // Iniciando el servidor...
-var server = app.listen(PORT || 3000, function(){
-  console.log('Escuchando en el puerto ' + server.address().port);
+var server = app.listen(PORT , HOST, function(){
+  console.log(`Escuchando en http://${HOST}:${server.address().port}`);
 });
