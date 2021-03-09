@@ -1,16 +1,11 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    cors = require('cors'),
-    path = require('path'),
-    dotenv = require('dotenv');
+    cors = require('cors');
 
 // Objeto global de la app
 var app = express();
 
-//Configuraciones de entorno
-dotenv.config({
-  path : path.resolve(__dirname, process.env.NODE_ENV + '.env')
-});
+const {PORT} = require('./cf');
 
 require('./database');
 
@@ -38,6 +33,6 @@ app.use(function(req, res, next) {
 });
 
 // Iniciando el servidor...
-var server = app.listen(process.env.PORT || 3000, function(){
+var server = app.listen(PORT || 3000, function(){
   console.log('Escuchando en el puerto ' + server.address().port);
 });
