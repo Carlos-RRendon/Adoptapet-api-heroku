@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'development'){
   console.log ('Using',path.resolve(__dirname,'..', process.env.NODE_ENV+'.env')
   );
 }
+else{ const dotenv = require('dotenv').config() }
 
 
   module.exports = {
