@@ -1,12 +1,16 @@
 const path = require('path');
-const dotenv = require('dotenv');
 
-//Configuraciones de entorno
-dotenv.config({
-    path : path.resolve(__dirname,'..', process.env.NODE_ENV + '.env')
-  });
+if (process.env.NODE_ENV === 'development'){
+  const dotenv = require('dotenv');
+  //Configuraciones de entorno
+  dotenv.config({
+    path : path.resolve(__dirname,'..', process.env.NODE_ENV + '.env')});
+    
+  console.log ('Using',path.resolve(__dirname,'..', process.env.NODE_ENV+'.env')
+  );
+}
 
-  console.log ('Using',path.resolve(__dirname,'..', process.env.NODE_ENV+'.env'))
+
 
   module.exports = {
       PORT : process.env.PORT || 3000,
