@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development'){
   );
 }
 else{ const dotenv = require('dotenv').config() }
-
+console.log(process.env.PORT)
 
   module.exports = {
       PORT : process.env.PORT || 3000,
