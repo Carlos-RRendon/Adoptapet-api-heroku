@@ -23,7 +23,7 @@
    const uniqueValidator = require("mongoose-unique-validator"); //Importando módulo mongoose-unique-validator, pendiente de instalar.
    const crypto = require('crypto');                             //Importando módulo crypto, pendiente de instalar.
    const jwt = require('jsonwebtoken');                          //Importando módulo jsonwebtoken, pendiente de instalar.
-   const secret = require('../config').secret;                   
+   const secret = require('../config/config').secret;                   
 
    const UsuarioSchema = new mongoose.Schema({                   //Definiendo el objeto UsuarioSchema con el constructor Schema.
     username: {                                                  //Definiendo cada campo con sus tipo sde datos y validaciones.
@@ -118,4 +118,4 @@ UsuarioSchema.methods.publicData = function(){
   };
 };
 
-mongoose.model("Usuario", UsuarioSchema);    //Define el modelo Usuario, utilizando el esquema UsuarioSchema.
+module.exports = mongoose.model("Usuario", UsuarioSchema,'Usuarios');    //Define el modelo Usuario, utilizando el esquema UsuarioSchema.

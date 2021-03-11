@@ -23,7 +23,7 @@ const {
   modificarMascota,
   eliminarMascota
 } = require('../controllers/mascotas')
-var auth = require('./auth');
+var auth = require('../helpers/auth');
 
 router.get('/', auth.opcional,obtenerMascotas)
 router.get('/:id', auth.opcional, obtenerMascotas)// nuevo endpoint con todos los detalles de mascota

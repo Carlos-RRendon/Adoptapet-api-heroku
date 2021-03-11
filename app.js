@@ -1,11 +1,12 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    cors = require('cors');
+    cors = require('cors'),
+     morgan = require('morgan');
 
 // Objeto global de la app
 const app = express();
 
-const {PORT, HOST} = require('./config');
+const {PORT, HOST} = require('./config/config');
 
 require('./database');
 
@@ -13,13 +14,12 @@ require('./database');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(morgan('dev'));
 
 require("./models/Usuario");
 require('./config/passport');
 require('./models/Mascota');
 require('./models/Solicitud');
-
 
 
 // Agregamos el código de nuestro router (routes/index.js)

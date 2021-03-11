@@ -23,7 +23,7 @@ const {
   modificarSolicitud,
   //eliminarSolicitud
 } = require('../controllers/solicitudes')
-var auth = require('./auth');
+var auth = require('../helpers/auth');
 
 router.get('/', auth.requerido, obtenerSolicitud)
 router.get('/:id', auth.requerido, obtenerSolicitud)

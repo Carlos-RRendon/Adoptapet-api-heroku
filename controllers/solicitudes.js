@@ -117,8 +117,9 @@ function modificarSolicitud(req, res, next) {
 }
 
 
-/*function eliminarSolicitud(req, res) {
-    // Líneas que buscan una solicitud en la bd, una vez que lo encuenra lo elimina.
+/*
+function eliminarSolicitud(req, res) {
+Líneas que buscan una solicitud en la bd, una vez que lo encuenra lo elimina.
   res.status(200).send(`Solicitud ${req.params.id} eliminado`);
 }*/
 
