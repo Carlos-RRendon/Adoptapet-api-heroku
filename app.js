@@ -14,7 +14,7 @@ require('./database');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 require("./models/Usuario");
 require('./config/passport');
@@ -33,6 +33,6 @@ app.use('/v1', require('./routes'));
 // });
 
 // Iniciando el servidor...
-var server = app.listen(PORT , HOST, function(){
+var server = app.listen(PORT , function(){
   console.log(`Escuchando en http://${HOST}:${server.address().port}`);
 });

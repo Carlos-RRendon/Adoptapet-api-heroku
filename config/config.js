@@ -9,8 +9,7 @@ if (process.env.NODE_ENV === 'development'){
   console.log ('Using',path.resolve(__dirname,'..', process.env.NODE_ENV+'.env')
   );
 }
-else{ const dotenv = require('dotenv').config() }
-console.log(process.env.PORT)
+
 
   module.exports = {
       PORT : process.env.PORT || 3000,
