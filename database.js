@@ -1,11 +1,10 @@
 /*********************** Mongoose Configuration *******************************/
 const mongoose = require("mongoose");
 
-const { MONGODB_USER, MONGODB_PASS, MONGODB_DATABASE} =  require('./config/config');
+const { DB_URI} =  require('./config/config');
 
-const MONGODB_URI =  `mongodb+srv://${MONGODB_USER}:${MONGODB_PASS}@cluster0.etjir.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`
 
-mongoose.connect( MONGODB_URI, {
+mongoose.connect( DB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
